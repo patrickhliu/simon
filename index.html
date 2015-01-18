@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>26. Simon Says</title>
+		<link href="css/reset.css" rel="stylesheet" type="text/css">
+		<link href="css/style.css" rel="stylesheet" type="text/css">		
+	</head>
+	<body>
+		<header>
+			<h1>Simon Says</h1>
+			<p>Directions:</p>
+				<ul>
+					<li>1. Press "start" to receive a sequence of colors.</li>
+					<li>2. Repeat the sequence on your own by clicking on the colors.</li>
+					<li>3. Press "submit" to see if you got the right sequence.</li>
+					<li>4. Press "start" to begin another round. Each successive round will add an additional color to the sequence.</li>
+				<ul>
+		</header>
+		
+		<section class="main cf">
+			<div class="square green"></div>
+			<div class="square red"></div>
+			<div class="square yellow"></div>
+			<div class="square blue"></div>
+			<button class="start">START</button>
+			<button class="submit">SUBMIT</button>
+		</section>		
+		
+		<div class="sound"></div>
+		
+		<!-- <audio autoplay="autoplay" controls="controls"><source src="blue.wav" /></audio>  -->
+				
+		<script src="js/script.js" type="text/javascript"></script>
+	</body>
+</html>
