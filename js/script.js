@@ -37,10 +37,10 @@ var soundOff = function (color) {
 // This function calls: highlight() and soundOff() to display the color pattern on screen
 function flashPattern () {  
     setTimeout( function () {
-        highlight(patternCount);            // "patternCount" is the array index # to call in the "pattern" array.
-        soundOff( pattern[patternCount] );  // pattern[patternCount] is string for the color that you want sound to play for.
-        patternCount++;                     // increment patternCount
-        if ( patternCount < pattern.length) {   // check if the end of the "pattern" array has been reached, if not, then recursively call flashPattern()
+        highlight(patternCount);                        // "patternCount" is the array index # to call in the "pattern" array.
+        soundOff( pattern[patternCount] );              // pattern[patternCount] is string for the color that you want sound to play for.
+        patternCount++;                                 // increment patternCount
+        if ( patternCount < pattern.length) {           // check if the end of the "pattern" array has been reached, if not, then recursively call flashPattern()
             flashPattern();
         }
     }, 1000);   
@@ -50,11 +50,11 @@ function flashPattern () {
 // Event handler for user pushes "start" button.  
 // This will start a brand new game, or continue to the next round that features a longer pattern. 
 start.addEventListener('click', function () {                           
-    if (roundDone) {                    // "roundDone" was initialized as true, so very first pattern will flash.
-        patternCount = 0;               // initialize patternCount (the index for the "pattern" array) to 0.  Always want to start from beginning of the pattern.
-        makePattern();                  // add a new color to the pattern.  So each time start is pressed, the pattern gets longer.
-        flashPattern();                 // flash that pattern, always start from the first color in the pattern array.
-        roundDone = false;              // set "roundDone" to false, so if user pushes "start" again an error message will display saying "must complete current round"
+    if (roundDone) {                                    // "roundDone" was initialized as true, so very first pattern will flash.
+        patternCount = 0;                               // initialize patternCount (the index for the "pattern" array) to 0.  Always want to start from beginning of the pattern.
+        makePattern();                                  // add a new color to the pattern.  So each time start is pressed, the pattern gets longer.
+        flashPattern();                                 // flash that pattern, always start from the first color in the pattern array.
+        roundDone = false;                              // set "roundDone" to false, so if user pushes "start" again an error message will display saying "must complete current round"
     }
     else {
         alert("You must complete current round first");
