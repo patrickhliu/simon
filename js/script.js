@@ -6,7 +6,8 @@ var square = document.getElementsByClassName('square');         // variable for 
 var color = ['red', 'green', 'blue', 'yellow'];                 // array to store the 4 selectable colors
 var pattern = [];                                               // array to store the color pattern that will be flashed on screen
 var answer = [];                                                // array to store the response from the user
-var patternCount;                                               // varible to count the # of inputs by the user
+var patternCount;                                               // variable to count the # of inputs by the user
+var roundDone = true;                                           // boolean to track if current round completed. Initialize to true so the very first pattern can be flashed.
 
 // This function will select a random element in the "color" array, and push it onto the pattern array
 function makePattern () {   
@@ -46,15 +47,25 @@ function flashPattern () {
 }
 
 
-// Event handler for user pushes "start" button.  This will start a brand new game, or continue to the next round that features a longer pattern. 
+// Event handler for user pushes "start" button.  
+// This will start a brand new game, or continue to the next round that features a longer pattern. 
 start.addEventListener('click', function () {                           
-    patternCount = 0;               // initialize patternCount (the index for the "pattern" array) to 0.  Always want to start from beginning of the pattern.
-    makePattern();                  // add a new color to the pattern.  So each time start is pressed, the pattern gets longer.
-    flashPattern();                 // flash that pattern, always start from the first color in the pattern array.
+    if (roundDone) {                    // "roundDone" was initialized as true, so very first pattern will flash.
+        patternCount = 0;               // initialize patternCount (the index for the "pattern" array) to 0.  Always want to start from beginning of the pattern.
+        makePattern();                  // add a new color to the pattern.  So each time start is pressed, the pattern gets longer.
+        flashPattern();                 // flash that pattern, always start from the first color in the pattern array.
+        roundDone = false;              // set "roundDone" to false, so if user pushes "start" again an error message will display saying "must complete current round"
+    }
+    else {
+        alert("You must complete current round first");
+    }
+
+
 });
 
 
-// Event handler for whenever the user clicks the colored squares.  This is when the user inputs their guess for the color pattern.
+// Event handler for whenever the user clicks the colored squares.  
+// This is when the user inputs their guess for the color pattern.
 for ( var x = 0; x < square.length; x++ ) { 
     square[x].addEventListener('click', function () {                                   // When the user clicks on a square...
     
@@ -80,7 +91,6 @@ for ( var x = 0; x < square.length; x++ ) {
 submit.addEventListener('click', function () {
     
     if ( answer.length === pattern.length) {                                            // check if the two arrays "answer" & "pattern" have same # of colors
-        
         var correct = answer.every(function(elem, ind, answer) {                        // use .every() to check if every pair of elements in both arrays match
             return answer[ind] == pattern[ind];                                         // "correct" will either be true or false
         }) // END .every()
@@ -88,6 +98,7 @@ submit.addEventListener('click', function () {
 
         if (correct) {                                                                  // if "correct" is true, user got the pattern right
             answer = [];                                                                // clear the "answer" array, user will need to guess from 1st color on next round
+            roundDone = true;                                                           // set "roundDone" to true, so the next pattern will flash when user presses "start"
             alert("you're correct!!");                                                  // alert a 'correct' message
         }
         else {                                                                          // else means user's guess was wrong
