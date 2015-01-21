@@ -28,97 +28,97 @@
 
 /************************************* MY CSS *************************************/
 body {
-	background-color: black;
+    background-color: black;
 }
 
 header {
-	color: white;
-	text-align: center;
-	font-weight: bold;
-	font-size: 1.2em;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
 }
 
 header ul {
-	list-style: none;
-	width: 600px;
-	margin: 0 auto;
-	text-align: left;
+    list-style: none;
+    width: 600px;
+    margin: 0 auto;
+    text-align: left;
 }
 
 header ul li {
-	line-height: 25px;
+    line-height: 25px;
 }
 
 .main {
-	width: 440px;
-	margin: 30px auto;
-	text-align: center;
+    width: 440px;
+    margin: 30px auto;
+    text-align: center;
 }
 
 .square {
-	width: 200px;
-	height: 200px;
-	float: left;
-	margin: 10px;
+    width: 200px;
+    height: 200px;
+    float: left;
+    margin: 10px;
 }
 
 .green {
-	background-color: #048C04;
-	border-radius: 100% 0 0 0;						
+    background-color: #048C04;
+    border-radius: 100% 0 0 0;                      
 }
 
 .red {
-	background-color: #D10046;
-	border-radius: 0 100% 0 0;						
+    background-color: #D10046;
+    border-radius: 0 100% 0 0;                      
 }
 
 .yellow {
-	background-color: #C7C234;
-	border-radius: 0 0 0 100%;						
+    background-color: #C7C234;
+    border-radius: 0 0 0 100%;                      
 }
 
 .blue {
-	background-color: #240BA1;
-	border-radius: 0 0 100% 0;						
+    background-color: #240BA1;
+    border-radius: 0 0 100% 0;                      
 }
 
 .on_green {
-	background-color: #BCFAB9;
-	border-radius: 100% 0 0 0;
+    background-color: #BCFAB9;
+    border-radius: 100% 0 0 0;
 }
 
 .on_red {
-	background-color: #F772B5;
-	border-radius: 0 100% 0 0;
+    background-color: #F772B5;
+    border-radius: 0 100% 0 0;
 }
 
 .on_yellow {
-	background-color: #F9FF8A;
-	border-radius: 0 0 0 100%;
+    background-color: #F9FF8A;
+    border-radius: 0 0 0 100%;
 }
 
 .on_blue {
-	background-color: #BFE6FF;
-	border-radius: 0 0 100% 0;
+    background-color: #BFE6FF;
+    border-radius: 0 0 100% 0;
 }
 
 button {
-	margin: 20px;
-	width: 120px;
-	height: 50px;
-	font-size: 1.6em;
+    margin: 20px;
+    width: 120px;
+    height: 50px;
+    font-size: 1.6em;
 }
 
 .start {
-	background-color: green;	
+    background-color: green;    
 }
 
 .submit {
-	background-color: red;
+    background-color: red;
 }
 
 .sound {
-	display: none;
+    display: none;
 }
 
 
