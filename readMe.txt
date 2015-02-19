@@ -6,3 +6,5 @@ Project Details:
 Implement the simon color game in a web browser.
 
 Written with HTML, CSS, vanilla Javascript.
+
+Github Page: http://pliu82.github.io/simon/
