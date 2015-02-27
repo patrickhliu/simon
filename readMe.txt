@@ -5,6 +5,7 @@ http://jenniferdewalt.com/simon.html
 Project Details: 
 Implement the simon color game in a web browser.
 
-Written with HTML, CSS, vanilla Javascript.
+Needed Improvements: 
+1) Sounds don't play in Internet Explorer 11 due to .wav format
 
-Github Page: http://pliu82.github.io/simon/
+Written with HTML, CSS, vanilla Javascript.
