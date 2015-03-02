@@ -25,10 +25,13 @@
     *zoom: 1;
 }
 
-
 /************************************* MY CSS *************************************/
 body {
     background-color: black;
+}
+
+.hide {
+    display: none;
 }
 
 header {
@@ -120,11 +123,3 @@ button {
 .sound {
     display: none;
 }
-
-
-
-
-
-
-
-
