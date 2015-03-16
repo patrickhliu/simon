@@ -7,6 +7,7 @@ var color = ['red', 'green', 'blue', 'yellow'];                 // array to stor
 var pattern = [];                                               // array to store the color pattern that will be flashed on screen
 var answer = [];                                                // array to store the response from the user
 var patternCount;                                               // variable to count the # of inputs by the user
+var mainContainer  = document.querySelector('.main');
 
 // This function will select a random element in the "color" array, and push it onto the pattern array
 function makePattern () {   
@@ -60,27 +61,24 @@ start.addEventListener('click', function () {
 });
 
 // Event handler for whenever the user clicks the colored squares.  
-// This is when the user inputs their guess for the color pattern.
-for ( var x = 0; x < square.length; x++ ) { 
-    square[x].addEventListener('click', function () {                                   // When the user clicks on a square...
-    
-        // When user clicks on  a square, highlight that by changing it's class name to include "on", then after 500ms, remove the "on" word to change colors back
-        if ( this.className.indexOf("on") == -1 ) {                                     // if the CSS class of the square element does not have "on" (has dull color)
-            var colorName = this.className.replace("square ", "");                      // extract the color of the square into "colorName"
-            this.className = "square on_" + colorName;                                  // rewrite the element's class name to be "on" (has bright color)
+mainContainer.addEventListener('click', function(e) {
+    if (e.target.classList.contains('square')) {                                        // if user clicked a square...
+        // Highlight the square that was clicked with CSS class "on", 
+        // then after 500ms, remove "on" CSS class to change colors back
+        if ( e.target.className.indexOf("on") == -1 ) {                                 // if the CSS class of the square element does not have "on" (has dull color)
+            var colorName = e.target.className.replace("square ", "");                  // extract the color of the square into "colorName"
+            e.target.className = "square on_" + colorName;                              // rewrite the element's class name to be "on" (has bright color)
             
             // After 500ms, change the color back to it's original dull shade
-            var that = this;
             setTimeout( function() {                                                    // After 500ms, set the class name back to w/out "on" (back to dull color)
-                that.className = "square " + colorName;
+                e.target.className = "square " + colorName;
             }, 500);
             
             soundOff(colorName);                                                        // have the browser play the sound for that color square            
-        }
-        
-        answer.push(colorName);                                                         // push the colorName onto the "answer" array.  This records user's input.
-    });
-}
+        }        
+        answer.push(colorName);    
+    }
+})
 
 // When user clicks the submit button, verify if their answer is wrong/right
 submit.addEventListener('click', function () {
@@ -108,12 +106,3 @@ submit.addEventListener('click', function () {
         alert("wrong # of colors, try again");                                          // alert the user "wrong # of colors"
     }
 });
-
-
-
-
-
-
-
-
-
