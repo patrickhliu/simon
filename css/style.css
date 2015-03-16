@@ -46,6 +46,7 @@ header ul {
     width: 600px;
     margin: 0 auto;
     text-align: left;
+    padding: 0;
 }
 
 header ul li {
